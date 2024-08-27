@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card mb-4">
+    <h5 class="card-header">Cadastro de Peças</h5>
+    <div class="card-body">
+      <form id="formPartRegistration" method="POST">
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="partName" class="form-label">Nome da Peça</label>
+            <input type="text" class="form-control" id="partName" name="partName" placeholder="Nome da Peça" />
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="partCode" class="form-label">Código da Peça</label>
+            <input type="text" class="form-control" id="partCode" name="partCode" placeholder="Código ou Número de Série" />
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="manufacturer" class="form-label">Fabricante</label>
+            <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Fabricante" />
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="vehicleCompatibility" class="form-label">Compatibilidade de Veículo</label>
+            <input type="text" class="form-control" id="vehicleCompatibility" name="vehicleCompatibility" placeholder="Modelos de Veículos Compatíveis" />
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="quantity" class="form-label">Quantidade em Estoque</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Quantidade em Estoque" />
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="price" class="form-label">Preço Unitário</label>
+            <input type="text" class="form-control" id="price" name="price" placeholder="Preço Unitário" />
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="supplier" class="form-label">Fornecedor</label>
+            <input type="text" class="form-control" id="supplier" name="supplier" placeholder="Fornecedor da Peça" />
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="purchaseDate" class="form-label">Data de Aquisição</label>
+            <input type="date" class="form-control" id="purchaseDate" name="purchaseDate" />
+          </div>
+          <div class="mb-3 col-12">
+            <label for="description" class="form-label">Descrição</label>
+            <textarea class="form-control" id="description" name="description" rows="4" placeholder="Descrição detalhada da peça"></textarea>
+          </div>
+        </div>
+        <div class="mt-2">
+          <button type="submit" class="btn btn-primary me-2">Cadastrar Peça</button>
+          <button type="reset" class="btn btn-outline-danger">Cancelar</button>
+        </div>
+      </form>
+    </div>
+</div>
+
+{% endblock %}

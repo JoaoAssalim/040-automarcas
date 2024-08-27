@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card mb-4">
+    <h5 class="card-header">Listagem de Peças</h5>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table">
+                    <tr>
+                        <th>Nome da Peça</th>
+                        <th>Código</th>
+                        <th>Fabricante</th>
+                        <th>Compatibilidade</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unitário</th>
+                        <th>Fornecedor</th>
+                        <th>Data de Aquisição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for part in parts %}
+                    <tr>
+                        <td>{{ part.part_name }}</td>
+                        <td>{{ part.part_code }}</td>
+                        <td>{{ part.manufacturer }}</td>
+                        <td>{{ part.vehicle_compatibility }}</td>
+                        <td>{{ part.quantity }}</td>
+                        <td>{{ part.price }}</td>
+                        <td>{{ part.supplier }}</td>
+                        <td>{{ part.purchase_date }}</td>
+                        <td>
+                            <a href="{% url 'delete_part' part.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta peça?');">Excluir</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="9" class="text-center">Nenhuma peça cadastrada.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

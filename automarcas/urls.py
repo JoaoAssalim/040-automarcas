@@ -7,6 +7,8 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from backend.services.views import delete_part, delete_service
+
 
 urlpatterns_api  = [
     
@@ -29,11 +31,18 @@ schema_view = get_schema_view(
     permission_classes=(permissions.IsAuthenticated,),
 )
 
+urlpatterns_servies = [
+    path('delete_part/<int:part_id>/', delete_part, name='delete_part'),
+    path('delete_service/<int:part_id>/', delete_service, name='delete_service'),
+]
+
+
 urlpatterns = [
         path('', include('backend.urls')),
 
         path('admin/', admin.site.urls)] + \
-             urlpatterns_api + \
+            urlpatterns_api + \
+            urlpatterns_servies + \
         [ 
             re_path(r'api/swagger/$', login_required(schema_view.with_ui('swagger', cache_timeout=0)), name='schema-swagger-ui'),
             re_path(r'system-status-v0qw/', include('health_check.urls'))
