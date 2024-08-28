@@ -5,79 +5,98 @@
 <div class="card mb-4">
     <h5 class="card-header">Cadastro de Serviços</h5>
     <div class="card-body">
-      <form id="formServiceRegistration" method="POST">
-        <div class="row">
-          <div class="mb-3 col-md-6">
-            <label for="vehicleBrand" class="form-label">Marca do Veículo</label>
-            <select id="vehicleBrand" class="form-select">
-              <option value="">Selecione a marca</option>
-              <option value="Chevrolet">Chevrolet</option>
-              <option value="Fiat">Fiat</option>
-              <option value="Ford">Ford</option>
-              <option value="Honda">Honda</option>
-              <option value="Hyundai">Hyundai</option>
-              <option value="Nissan">Nissan</option>
-              <option value="Toyota">Toyota</option>
-              <option value="Volkswagen">Volkswagen</option>
-            </select>
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="vehicleModel" class="form-label">Modelo</label>
-            <input type="text" class="form-control" id="vehicleModel" name="vehicleModel" placeholder="Modelo do Veículo" />
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="vehiclePlate" class="form-label">Placa</label>
-            <input type="text" class="form-control" id="vehiclePlate" name="vehiclePlate" placeholder="Placa do Veículo" />
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="vehicleYear" class="form-label">Ano</label>
-            <input type="text" class="form-control" id="vehicleYear" name="vehicleYear" placeholder="Ano do Veículo" />
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="mileage" class="form-label">Quilometragem Atual</label>
-            <input type="text" class="form-control" id="mileage" name="mileage" placeholder="Quilometragem Atual" />
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="serviceDate" class="form-label">Data do Serviço</label>
-            <input type="date" class="form-control" id="serviceDate" name="serviceDate" />
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="ownerName" class="form-label">Nome do Proprietário</label>
-            <input type="text" class="form-control" id="ownerName" name="ownerName" placeholder="Nome do Proprietário" />
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="phoneNumber" class="form-label">Telefone</label>
-            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Telefone de Contato" />
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="serviceType" class="form-label">Tipo de Serviço</label>
-            <select id="serviceType" class="form-select">
-              <option value="">Selecione o tipo de serviço</option>
-              <option value="revisao">Revisão</option>
-              <option value="troca_oleo">Troca de Óleo</option>
-              <option value="alinhamento">Alinhamento</option>
-              <option value="balanceamento">Balanceamento</option>
-              <option value="freios">Verificação de Freios</option>
-              <option value="suspensao">Suspensão</option>
-              <option value="eletrica">Elétrica</option>
-              <option value="outro">Outro</option>
-            </select>
-          </div>
-          <div class="mb-3 col-12">
-            <label for="problemDescription" class="form-label">Problema</label>
-            <textarea class="form-control" id="problemDescription" name="problemDescription" rows="4" placeholder="Descreva o problema"></textarea>
-          </div>
-          <div class="mb-3 col-12">
-            <label for="additionalInfo" class="form-label">Informações Adicionais</label>
-            <textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="3" placeholder="Outras informações relevantes"></textarea>
-          </div>
-        </div>
-        <div class="mt-2">
-          <button type="submit" class="btn btn-primary me-2">Cadastrar Serviço</button>
-          <button type="reset" class="btn btn-outline-danger">Cancelar</button>
-        </div>
-      </form>
+        <form id="formServiceRegistration">
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="vehicleBrand" class="form-label">Marca do Veículo</label>
+                    <select id="vehicleBrand" class="form-select" name="vehicleBrand">
+                        <option value="">Selecione a marca</option>
+                        <option value="Chevrolet">Chevrolet</option>
+                        <option value="Fiat">Fiat</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="Nissan">Nissan</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                    </select>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="vehicleModel" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" id="vehicleModel" name="vehicleModel" placeholder="Modelo do Veículo" />
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="vehiclePlate" class="form-label">Placa</label>
+                    <input type="text" class="form-control" id="vehiclePlate" name="vehiclePlate" placeholder="Placa do Veículo" />
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="vehicleYear" class="form-label">Ano</label>
+                    <input type="number" class="form-control" id="vehicleYear" name="vehicleYear" placeholder="Ano do Veículo" />
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="mileage" class="form-label">Quilometragem Atual</label>
+                    <input type="text" class="form-control" id="mileage" name="mileage" placeholder="Quilometragem Atual" />
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="ownerName" class="form-label">Nome do Proprietário</label>
+                    <input type="text" class="form-control" id="ownerName" name="ownerName" placeholder="Nome do Proprietário" />
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="phoneNumber" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Telefone de Contato" />
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="serviceType" class="form-label">Tipo de Serviço</label>
+                    <select id="serviceType" class="form-select" name="serviceType">
+                        <option value="">Selecione o tipo de serviço</option>
+                        <option value="revisao">Revisão</option>
+                        <option value="troca_oleo">Troca de Óleo</option>
+                        <option value="alinhamento">Alinhamento</option>
+                        <option value="balanceamento">Balanceamento</option>
+                        <option value="freios">Verificação de Freios</option>
+                        <option value="suspensao">Suspensão</option>
+                        <option value="eletrica">Elétrica</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="problemDescription" class="form-label">Problema</label>
+                    <textarea class="form-control" id="problemDescription" name="problemDescription" rows="4" placeholder="Descreva o problema"></textarea>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="additionalInfo" class="form-label">Informações Adicionais</label>
+                    <textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="3" placeholder="Outras informações relevantes"></textarea>
+                </div>
+            </div>
+            <div class="mt-2">
+                <button type="button" id="submitService" class="btn btn-primary me-2">Cadastrar Serviço</button>
+                <button type="reset" class="btn btn-outline-danger">Cancelar</button>
+            </div>
+        </form>
     </div>
 </div>
+
+<script>
+    document.getElementById('submitService').addEventListener('click', function(event) {
+        event.preventDefault();  // Previne o comportamento padrão de submit
+
+        const form = document.getElementById('formServiceRegistration');
+        const formData = new FormData(form);
+
+        console.log(...formData); // Log para verificar o conteúdo do FormData
+
+        fetch("{% url 'create_service' %}", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}",
+            },
+        })
+        .then(response => {
+          console.log(response)
+          window.location.href = response.url
+        })
+    });
+</script>
 
 {% endblock %}

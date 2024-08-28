@@ -17,7 +17,6 @@
                         <th>Proprietário</th>
                         <th>Telefone</th>
                         <th>Serviço</th>
-                        <th>Status</th>
                         <th>Data do Serviço</th>
                         <th>Ações</th>
                     </tr>
@@ -35,7 +34,7 @@
                         <td>{{ service.problem_description }}</td>
                         <td>{{ service.service_date }}</td>
                         <td>
-                            <a href="{% url 'service_delete' service.id %}" class="btn btn-sm btn-danger">Excluir</a>
+                            <a href="{% url 'delete_service' service.id %}" class="btn btn-sm btn-danger">Excluir</a>
                         </td>
                     </tr>
                     {% empty %}

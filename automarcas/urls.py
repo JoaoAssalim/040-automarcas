@@ -7,7 +7,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-from backend.services.views import delete_part, delete_service
+from backend.services.views import *
 
 
 urlpatterns_api  = [
@@ -33,7 +33,9 @@ schema_view = get_schema_view(
 
 urlpatterns_servies = [
     path('delete_part/<int:part_id>/', delete_part, name='delete_part'),
-    path('delete_service/<int:part_id>/', delete_service, name='delete_service'),
+    path('delete_service/<int:service_id>/', delete_service, name='delete_service'),
+    path('create_service/', create_service, name='create_service'),
+    path('create_part/', create_part, name='create_part'),
 ]
 
 

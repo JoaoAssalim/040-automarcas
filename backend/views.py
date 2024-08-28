@@ -39,12 +39,12 @@ class PecasCreate(View):
     
 class PecasList(View):
     template_name = 'pecas-list.html'
-    context = {
-        "parts": Part.objects.all()
-    }
 
     def get(self, request):
-        return render(request, self.template_name)
+        context = {
+            "parts": Part.objects.all()
+        }
+        return render(request, self.template_name, context=context)
 
 
     

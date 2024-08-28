@@ -5,43 +5,43 @@
 <div class="card mb-4">
     <h5 class="card-header">Cadastro de Peças</h5>
     <div class="card-body">
-      <form id="formPartRegistration" method="POST">
+      <form id="formPartRegistration">
         <div class="row">
           <div class="mb-3 col-md-6">
             <label for="partName" class="form-label">Nome da Peça</label>
-            <input type="text" class="form-control" id="partName" name="partName" placeholder="Nome da Peça" />
+            <input type="text" class="form-control" id="partName" name="partName" placeholder="Nome da Peça" required />
           </div>
           <div class="mb-3 col-md-6">
             <label for="partCode" class="form-label">Código da Peça</label>
-            <input type="text" class="form-control" id="partCode" name="partCode" placeholder="Código ou Número de Série" />
+            <input type="text" class="form-control" id="partCode" name="partCode" placeholder="Código ou Número de Série" required />
           </div>
           <div class="mb-3 col-md-6">
             <label for="manufacturer" class="form-label">Fabricante</label>
-            <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Fabricante" />
+            <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Fabricante" required />
           </div>
           <div class="mb-3 col-md-6">
             <label for="vehicleCompatibility" class="form-label">Compatibilidade de Veículo</label>
-            <input type="text" class="form-control" id="vehicleCompatibility" name="vehicleCompatibility" placeholder="Modelos de Veículos Compatíveis" />
+            <input type="text" class="form-control" id="vehicleCompatibility" name="vehicleCompatibility" placeholder="Modelos de Veículos Compatíveis" required />
           </div>
           <div class="mb-3 col-md-6">
             <label for="quantity" class="form-label">Quantidade em Estoque</label>
-            <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Quantidade em Estoque" />
+            <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Quantidade em Estoque" required />
           </div>
           <div class="mb-3 col-md-6">
             <label for="price" class="form-label">Preço Unitário</label>
-            <input type="text" class="form-control" id="price" name="price" placeholder="Preço Unitário" />
+            <input type="text" class="form-control" id="price" name="price" placeholder="Preço Unitário" required />
           </div>
           <div class="mb-3 col-md-6">
             <label for="supplier" class="form-label">Fornecedor</label>
-            <input type="text" class="form-control" id="supplier" name="supplier" placeholder="Fornecedor da Peça" />
+            <input type="text" class="form-control" id="supplier" name="supplier" placeholder="Fornecedor da Peça" required />
           </div>
           <div class="mb-3 col-md-6">
             <label for="purchaseDate" class="form-label">Data de Aquisição</label>
-            <input type="date" class="form-control" id="purchaseDate" name="purchaseDate" />
+            <input type="date" class="form-control" id="purchaseDate" name="purchaseDate" required />
           </div>
           <div class="mb-3 col-12">
             <label for="description" class="form-label">Descrição</label>
-            <textarea class="form-control" id="description" name="description" rows="4" placeholder="Descrição detalhada da peça"></textarea>
+            <textarea class="form-control" id="description" name="description" rows="4" placeholder="Descrição detalhada da peça" required></textarea>
           </div>
         </div>
         <div class="mt-2">
@@ -51,5 +51,32 @@
       </form>
     </div>
 </div>
+
+<script>
+  document.getElementById('formPartRegistration').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const form = document.getElementById('formPartRegistration');
+    const formData = new FormData(form);
+
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
+    fetch("{% url 'create_part' %}", {
+        method: "POST",
+        body: formData,
+        headers: {
+            "X-CSRFToken": "{{ csrf_token }}",
+        },
+    })
+    .then(response => {
+      console.log(response)
+      window.location.href = response.url
+    })
+    
+
+  });
+</script>
 
 {% endblock %}
